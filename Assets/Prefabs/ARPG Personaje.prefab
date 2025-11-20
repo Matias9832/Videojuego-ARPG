@@ -343,9 +343,9 @@ MonoBehaviour:
     ancho: 0.35
     centro: {x: 0, y: 0.7, z: 0}
   Rodando:
-    altura: 1.2
+    altura: 1.4
     ancho: 0.4
-    centro: {x: 0, y: 0.6, z: 0}
+    centro: {x: 0, y: 0.7, z: 0}
 --- !u!1 &383573230815547780
 GameObject:
   m_ObjectHideFlags: 0

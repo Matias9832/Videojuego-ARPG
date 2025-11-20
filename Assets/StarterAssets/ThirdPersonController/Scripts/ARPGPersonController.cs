@@ -421,6 +421,7 @@ namespace StarterAssets
                 _animator.SetBool("Rodando", estaRodando);
 
                 EstablecerSize(estaRodando == true ? Rodando : Parado);
+                // EstablecerSize(estaRodando ? Agachado : Parado);
             }
         }
 
