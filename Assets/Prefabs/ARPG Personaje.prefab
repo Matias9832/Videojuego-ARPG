@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: 0}
+  m_Actions: {fileID: -944628639613478452, guid: 4419d82f33d36e848b3ed5af4c8da37e, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -333,19 +333,19 @@ MonoBehaviour:
   estaAgachado: 0
   estaRodando: 0
   inputAgacharse: {fileID: 319560037371106699, guid: 4419d82f33d36e848b3ed5af4c8da37e, type: 3}
-  inputRodar: {fileID: 0}
+  inputRodar: {fileID: 7239083382964949617, guid: 4419d82f33d36e848b3ed5af4c8da37e, type: 3}
   Parado:
     altura: 1.8
     ancho: 0.28
-    centro: {x: 0, y: 0.93, z: 0}
+    centro: {x: 0, y: 0.9, z: 0}
   Agachado:
     altura: 1.4
     ancho: 0.35
-    centro: {x: 0, y: 1.4, z: 0}
+    centro: {x: 0, y: 0.7, z: 0}
   Rodando:
     altura: 1.2
     ancho: 0.4
-    centro: {x: 0, y: 1.5, z: 0}
+    centro: {x: 0, y: 0.6, z: 0}
 --- !u!1 &383573230815547780
 GameObject:
   m_ObjectHideFlags: 0

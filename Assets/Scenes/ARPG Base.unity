@@ -6834,10 +6834,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ARPG Personaje
       objectReference: {fileID: 0}
-    - target: {fileID: 4477419640579437745, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
-      propertyPath: m_Actions
-      value: 
-      objectReference: {fileID: -944628639613478452, guid: 4419d82f33d36e848b3ed5af4c8da37e, type: 3}
     - target: {fileID: 6273767084331491128, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.01
@@ -6879,16 +6875,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7188937380052759441, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
-      propertyPath: Parado.centro.y
-      value: 0.9
+      propertyPath: Rodando.altura
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7188937380052759441, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
       propertyPath: Rodando.centro.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7188937380052759441, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
-      propertyPath: Agachado.centro.y
-      value: 0.7
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

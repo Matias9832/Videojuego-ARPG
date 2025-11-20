@@ -405,10 +405,30 @@ namespace StarterAssets
         void OnEnable()
         {
             inputAgacharse.action.started += Agachar;
+            inputRodar.action.started += Rodar;
         }
         void OnDisable()
         {
             inputAgacharse.action.started -= Agachar;
+            inputRodar.action.started -= Rodar;
+        }
+
+        private void Rodar(InputAction.CallbackContext context)
+        {
+            if (Grounded == true)
+            {
+                estaRodando = !estaRodando;
+                _animator.SetBool("Rodando", estaRodando);
+
+                EstablecerSize(estaRodando == true ? Rodando : Parado);
+            }
+        }
+
+        public void FinRodar()
+        {
+            estaRodando = false;
+            _animator.SetBool("Rodando", estaRodando);
+            EstablecerSize(Parado);
         }
 
         private void Agachar(InputAction.CallbackContext context)
