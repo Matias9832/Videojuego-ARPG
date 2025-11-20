@@ -280,7 +280,7 @@ namespace StarterAssets
 
         private void JumpAndGravity()
         {
-            if (Grounded)
+            if (Grounded == true && estaAgachado == false)
             {
                 // reset the fall timeout timer
                 _fallTimeoutDelta = FallTimeout;
@@ -402,6 +402,32 @@ namespace StarterAssets
         // public ControladorEquipo controladorEquipo;
 
         // FUNCIONES INPUTS DEL PERSONAJE
+        void OnEnable()
+        {
+            inputAgacharse.action.started += Agachar;
+        }
+        void OnDisable()
+        {
+            inputAgacharse.action.started -= Agachar;
+        }
+
+        private void Agachar(InputAction.CallbackContext context)
+        {
+            if (Grounded == true)
+            {
+                estaAgachado = !estaAgachado;
+                _animator.SetBool("Agachado", estaAgachado);
+
+                EstablecerSize(estaAgachado == true ? Agachado : Parado);
+            }
+        }
+        public void EstablecerSize(SizePersonaje newSize)
+        {
+            _controller.height = newSize.altura;
+            _controller.radius = newSize.ancho;
+            _controller.center = newSize.centro;
+        }
+
     }
 
     // ESTRUCTURA PARA CONTROLAR EL TAMAÑO DEL PERSONAJE
