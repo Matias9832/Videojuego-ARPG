@@ -114681,7 +114681,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 2.3666666
+  - time: 1.9166666
     functionName: FinRodar
     data: 
     objectReferenceParameter: {fileID: 0}

@@ -394,8 +394,13 @@ namespace StarterAssets
         [Header("Variables ARPG")]
         public bool estaAgachado = false;
         public bool estaRodando = false;
+        public bool estaAtacando = false;
+        public bool tieneArma = false;
+
+        public int ArmaEquipada = 0;
         public InputActionReference inputAgacharse;
         public InputActionReference inputRodar;
+        public InputActionReference inputAtacar;
         public SizePersonaje Parado;
         public SizePersonaje Agachado;
         public SizePersonaje Rodando;
@@ -415,13 +420,17 @@ namespace StarterAssets
 
         private void Rodar(InputAction.CallbackContext context)
         {
-            if (Grounded == true)
+            if (Grounded == true && tieneArma == false)
             {
                 estaRodando = !estaRodando;
                 _animator.SetBool("Rodando", estaRodando);
 
                 EstablecerSize(estaRodando == true ? Rodando : Parado);
                 // EstablecerSize(estaRodando ? Agachado : Parado);
+            }
+            if(tieneArma == true)
+            {
+                Debug.Log("No puedes rodar con un arma equipada");
             }
         }
 

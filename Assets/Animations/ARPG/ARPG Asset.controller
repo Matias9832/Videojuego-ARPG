@@ -100,7 +100,7 @@ AnimatorStateMachine:
     m_Position: {x: 0, y: 490, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4362093762747196486}
-    m_Position: {x: 200, y: 270, z: 0}
+    m_Position: {x: 200, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -208582636843753063}
     m_Position: {x: 440, y: 270, z: 0}
@@ -446,7 +446,7 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: Ataque Martillo
+    m_Name: Ataque Barra
     m_StateMachine: {fileID: 2317346830985671999}
     m_Mask: {fileID: 0}
     m_Motions: []
@@ -587,7 +587,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ataque Martillo
+  m_Name: Ataque Barra
   m_ChildStates: []
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
@@ -638,8 +638,8 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
+  m_TransitionDuration: 0.342273
+  m_TransitionOffset: 0.028010797
   m_ExitTime: 0.8943662
   m_HasExitTime: 0
   m_HasFixedDuration: 1

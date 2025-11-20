@@ -332,8 +332,10 @@ MonoBehaviour:
   LockCameraPosition: 0
   estaAgachado: 0
   estaRodando: 0
+  estaAtacando: 0
   inputAgacharse: {fileID: 319560037371106699, guid: 4419d82f33d36e848b3ed5af4c8da37e, type: 3}
   inputRodar: {fileID: 7239083382964949617, guid: 4419d82f33d36e848b3ed5af4c8da37e, type: 3}
+  inputAtacar: {fileID: -8751646247292491807, guid: 4419d82f33d36e848b3ed5af4c8da37e, type: 3}
   Parado:
     altura: 1.8
     ancho: 0.28
