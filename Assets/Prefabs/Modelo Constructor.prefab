@@ -351,6 +351,7 @@ Transform:
   - {fileID: 4159281541343978}
   - {fileID: 4829054366821562}
   - {fileID: 4096562735523428}
+  - {fileID: 7722748892761471276}
   m_Father: {fileID: 4999627205678618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1336363123009780
@@ -1356,6 +1357,7 @@ Transform:
   - {fileID: 4682373818961668}
   - {fileID: 4349739237993214}
   - {fileID: 4161765261325898}
+  - {fileID: 5451572186193338213}
   m_Father: {fileID: 4058916972836910}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1827126823411604
@@ -1772,6 +1774,98 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4211676840704378}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2029792381825011667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5451572186193338213}
+  - component: {fileID: 7374001062738554820}
+  m_Layer: 0
+  m_Name: AnclaDer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5451572186193338213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029792381825011667}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.154, y: 0.076, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4129728698533280}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7374001062738554820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029792381825011667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db938bf526cab444a9d31886280f0cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armaEquipada: {fileID: 8478704002290303406}
+  Mano: DERECHA
+--- !u!1 &4865918539473055549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7722748892761471276}
+  - component: {fileID: 7688578956711265711}
+  m_Layer: 0
+  m_Name: AnclaIzq
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7722748892761471276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4865918539473055549}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.154, y: -0.076, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4722325973725004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7688578956711265711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4865918539473055549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db938bf526cab444a9d31886280f0cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armaEquipada: {fileID: 8533137869352417738}
+  Mano: IZQUIERDA
 --- !u!1 &6022398816962009727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,6 +1998,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7864175233240583341, guid: 6a30c416c365c194f81dc9822b4bc7e2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864175233240583341, guid: 6a30c416c365c194f81dc9822b4bc7e2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1914,6 +2016,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7506329925648885703, guid: 6a30c416c365c194f81dc9822b4bc7e2, type: 3}
   m_PrefabInstance: {fileID: 2915420629264030106}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8478704002290303406 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6764353604277147700, guid: 6a30c416c365c194f81dc9822b4bc7e2, type: 3}
+  m_PrefabInstance: {fileID: 2915420629264030106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d59f43ff479b6d47abfb55d6cbfc72c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7084171713733153588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1922,6 +2035,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4165532685837039074}
     m_Modifications:
+    - target: {fileID: 3325440380712159684, guid: 5b6e4ea561228fe4c886eed7bdb2917f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325440380712159684, guid: 5b6e4ea561228fe4c886eed7bdb2917f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3911386312502604539, guid: 5b6e4ea561228fe4c886eed7bdb2917f, type: 3}
       propertyPath: m_Name
       value: Hammer
@@ -1992,3 +2113,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5252254855691395932, guid: 5b6e4ea561228fe4c886eed7bdb2917f, type: 3}
   m_PrefabInstance: {fileID: 7084171713733153588}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8533137869352417738 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1457973366576147198, guid: 5b6e4ea561228fe4c886eed7bdb2917f, type: 3}
+  m_PrefabInstance: {fileID: 7084171713733153588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d59f43ff479b6d47abfb55d6cbfc72c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -6881,6 +6881,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7188937380052759441, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
+      propertyPath: ArmaDerecha
+      value: 
+      objectReference: {fileID: 5326919440953172798}
+    - target: {fileID: 7188937380052759441, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
       propertyPath: estaAgachado
       value: 0
       objectReference: {fileID: 0}
@@ -6889,6 +6893,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
+--- !u!114 &5326919440953172798 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7390568491102371375, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
+  m_PrefabInstance: {fileID: 5326919440953172797}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db938bf526cab444a9d31886280f0cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8338988566324754058 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8382039480608879608, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}

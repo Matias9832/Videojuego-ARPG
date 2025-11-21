@@ -391,26 +391,41 @@ namespace StarterAssets
         // VARIABLES EXTRAS PARA ARPG
 
         [Space]
-        [Header("Variables ARPG")]
+        [Header("Variables ARPG Movimiento")]
         public bool estaAgachado = false;
         public bool estaRodando = false;
-        public bool estaAtacando = false;
-        public bool tieneArma = false;
-
-        public int ArmaEquipada = 0;
         public InputActionReference inputAgacharse;
         public InputActionReference inputRodar;
-        public InputActionReference inputAtacar;
         public SizePersonaje Parado;
         public SizePersonaje Agachado;
         public SizePersonaje Rodando;
-        // public ControladorEquipo controladorEquipo;
+
+        [Space]
+        [Header("Variables ARPG Ataques")]
+        public bool estaAtacando = false;
+        public bool tieneArma = false;
+        public GameObject arma1;
+        public GameObject arma2;
+
+        // 0: Sin arma, 1: Arma derecha, 2: Arma izquierda
+        public InputActionReference inputAtacar;
+        public InputActionReference inputCambiarArma;
+        public int ArmaEquipada = 1;
+        public Transform AnclaManoDerecha;
+        public Transform AnclaDerecha;
+        public ARPGAnclaController ArmaDerecha;
+        public Transform AnclaManoIzquierda;
+        public Transform Anclaizquierda;
+        public ARPGAnclaController ArmaIzquierda;
 
         // FUNCIONES INPUTS DEL PERSONAJE
         void OnEnable()
         {
             inputAgacharse.action.started += Agachar;
             inputRodar.action.started += Rodar;
+
+            inputAtacar.action.started += Atacar;
+            inputAtacar.action.canceled += Atacar;
         }
         void OnDisable()
         {
@@ -428,7 +443,7 @@ namespace StarterAssets
                 EstablecerSize(estaRodando == true ? Rodando : Parado);
                 // EstablecerSize(estaRodando ? Agachado : Parado);
             }
-            if(tieneArma == true)
+            if (tieneArma == true)
             {
                 Debug.Log("No puedes rodar con un arma equipada");
             }
@@ -458,6 +473,58 @@ namespace StarterAssets
             _controller.center = newSize.centro;
         }
 
+        // FUNCION PARA SABER SI ESTA ATACANDO
+        private void Atacar(InputAction.CallbackContext context)
+        {
+            if (estaAtacando == false)
+            {
+                estaAtacando = true;
+                _animator.SetBool("Atacando", estaAtacando);
+            }
+            else
+            {
+                estaAtacando = false;
+                _animator.SetBool("Atacando", estaAtacando);
+            }
+        }
+        public void SacarArma()
+        {
+            if (ArmaEquipada == 1)
+            {
+                arma1.transform.parent = AnclaDerecha;
+                arma1.transform.localPosition = Vector3.zero;
+                arma1.transform.localEulerAngles = Vector3.zero;
+            }
+            if (ArmaEquipada == 2)
+            {
+                arma2.transform.parent = Anclaizquierda;
+                arma2.transform.localPosition = Vector3.zero;
+                arma2.transform.localEulerAngles = Vector3.zero;
+            }
+
+            tieneArma = true;
+            _animator.SetBool("TieneArma", tieneArma);
+            _animator.SetInteger("Arma", ArmaEquipada);
+        }
+
+        public void GuardarArma()
+        {
+            if (ArmaEquipada == 1)
+            {
+                arma1.transform.parent = AnclaManoDerecha;
+                arma1.transform.localPosition = Vector3.zero;
+                arma1.transform.localEulerAngles = Vector3.zero;
+            }
+            if (ArmaEquipada == 2)
+            {
+                arma2.transform.parent = AnclaManoIzquierda;
+                arma2.transform.localPosition = Vector3.zero;
+                arma2.transform.localEulerAngles = Vector3.zero;
+            }
+
+            tieneArma = false;
+            _animator.SetBool("TieneArma", tieneArma);
+        }
     }
 
     // ESTRUCTURA PARA CONTROLAR EL TAMAÑO DEL PERSONAJE
