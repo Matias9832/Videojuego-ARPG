@@ -315,7 +315,7 @@
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";KeyboardMouse",
                     "action": "GuardarArma",
                     "isComposite": false,
                     "isPartOfComposite": false

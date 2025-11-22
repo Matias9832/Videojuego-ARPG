@@ -576,8 +576,7 @@ namespace StarterAssets
 
         public void CambiarArma(InputAction.CallbackContext context)
         {
-            if (ArmaEquipada == 1) { ArmaEquipada = 2; }
-            if (ArmaEquipada == 2) { ArmaEquipada = 1; }
+            ArmaEquipada = (ArmaEquipada == 1) ? 2 : 1;
         }
 
     }
