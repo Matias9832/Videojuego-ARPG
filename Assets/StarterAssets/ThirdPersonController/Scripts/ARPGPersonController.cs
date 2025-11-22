@@ -122,6 +122,9 @@ namespace StarterAssets
             }
         }
 
+        [Range(0f, 1f)]
+        public float LayerAtaque;
+
         private void Awake()
         {
             // get a reference to our main camera
@@ -158,6 +161,8 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+
+            CambiarLayer();
         }
 
         private void LateUpdate()
@@ -388,6 +393,19 @@ namespace StarterAssets
             }
         }
 
+        public void CambiarLayer()
+        {
+            bool quieto = _speed <= 0.01f;
+            bool usarLayer = estaAtacando || estaGuardando || (tieneArma && quieto);
+
+            float target = usarLayer ? 1f : 0f;
+            float speedLerp = usarLayer ? 5f : 10f;
+
+            LayerAtaque = Mathf.MoveTowards(LayerAtaque, target, speedLerp * Time.deltaTime);
+
+            _animator.SetLayerWeight(1, LayerAtaque);
+        }
+
         // VARIABLES EXTRAS PARA ARPG
 
         [Space]
@@ -403,19 +421,25 @@ namespace StarterAssets
         [Space]
         [Header("Variables ARPG Ataques")]
         public bool estaAtacando = false;
+        public bool estaGuardando = false;
         public bool tieneArma = false;
+        public int ArmaEquipada = 1;
         public GameObject arma1;
+        public Transform arma1PosMano;
+        public Transform arma1PosEspalda;
         public GameObject arma2;
+        public Transform arma2PosMano;
+        public Transform arma2PosEspalda;
 
         // 0: Sin arma, 1: Arma derecha, 2: Arma izquierda
         public InputActionReference inputAtacar;
         public InputActionReference inputCambiarArma;
-        public int ArmaEquipada = 1;
+        public InputActionReference inputGuardarArma;
         public Transform AnclaManoDerecha;
         public Transform AnclaDerecha;
         public ARPGAnclaController ArmaDerecha;
         public Transform AnclaManoIzquierda;
-        public Transform Anclaizquierda;
+        public Transform AnclaIzquierda;
         public ARPGAnclaController ArmaIzquierda;
 
         // FUNCIONES INPUTS DEL PERSONAJE
@@ -426,11 +450,20 @@ namespace StarterAssets
 
             inputAtacar.action.started += Atacar;
             inputAtacar.action.canceled += Atacar;
+            inputGuardarArma.action.started += Guardar;
+
+            inputCambiarArma.action.started += CambiarArma;
         }
         void OnDisable()
         {
             inputAgacharse.action.started -= Agachar;
             inputRodar.action.started -= Rodar;
+
+            inputAtacar.action.started -= Atacar;
+            inputAtacar.action.canceled -= Atacar;
+            inputGuardarArma.action.started -= Guardar;
+
+            inputCambiarArma.action.started -= CambiarArma;
         }
 
         private void Rodar(InputAction.CallbackContext context)
@@ -476,29 +509,41 @@ namespace StarterAssets
         // FUNCION PARA SABER SI ESTA ATACANDO
         private void Atacar(InputAction.CallbackContext context)
         {
-            if (estaAtacando == false)
+            if (estaGuardando == false)
             {
-                estaAtacando = true;
-                _animator.SetBool("Atacando", estaAtacando);
+                if (context.started)
+                {
+                    estaAtacando = true;
+                    _animator.SetBool("Atacando", true);
+                }
+                else if (context.canceled)
+                {
+                    estaAtacando = false;
+                    _animator.SetBool("Atacando", false);
+                }
             }
-            else
+        }
+
+        private void Guardar(InputAction.CallbackContext context)
+        {
+            if (tieneArma == true && estaAtacando == false)
             {
-                estaAtacando = false;
-                _animator.SetBool("Atacando", estaAtacando);
+                estaGuardando = true;
+                _animator.SetBool("Guardando", true);
             }
         }
         public void SacarArma()
         {
             if (ArmaEquipada == 1)
             {
-                arma1.transform.parent = AnclaDerecha;
-                arma1.transform.localPosition = Vector3.zero;
+                arma1.transform.parent = AnclaManoDerecha;
+                arma1.transform.localPosition = arma1PosMano.localPosition;
                 arma1.transform.localEulerAngles = Vector3.zero;
             }
             if (ArmaEquipada == 2)
             {
-                arma2.transform.parent = Anclaizquierda;
-                arma2.transform.localPosition = Vector3.zero;
+                arma2.transform.parent = AnclaManoIzquierda;
+                arma2.transform.localPosition = arma2PosMano.localPosition;
                 arma2.transform.localEulerAngles = Vector3.zero;
             }
 
@@ -506,25 +551,35 @@ namespace StarterAssets
             _animator.SetBool("TieneArma", tieneArma);
             _animator.SetInteger("Arma", ArmaEquipada);
         }
-
         public void GuardarArma()
         {
             if (ArmaEquipada == 1)
             {
-                arma1.transform.parent = AnclaManoDerecha;
-                arma1.transform.localPosition = Vector3.zero;
+                arma1.transform.parent = AnclaDerecha;
+                arma1.transform.localPosition = arma1PosEspalda.localPosition;
                 arma1.transform.localEulerAngles = Vector3.zero;
             }
             if (ArmaEquipada == 2)
             {
-                arma2.transform.parent = AnclaManoIzquierda;
-                arma2.transform.localPosition = Vector3.zero;
+                arma2.transform.parent = AnclaIzquierda;
+                arma2.transform.localPosition = arma2PosEspalda.localPosition;
                 arma2.transform.localEulerAngles = Vector3.zero;
             }
 
             tieneArma = false;
             _animator.SetBool("TieneArma", tieneArma);
+            _animator.SetInteger("Arma", 0);
+
+            estaGuardando = false;
+            _animator.SetBool("Guardando", false);
         }
+
+        public void CambiarArma(InputAction.CallbackContext context)
+        {
+            if (ArmaEquipada == 1) { ArmaEquipada = 2; }
+            if (ArmaEquipada == 2) { ArmaEquipada = 1; }
+        }
+
     }
 
     // ESTRUCTURA PARA CONTROLAR EL TAMAÑO DEL PERSONAJE

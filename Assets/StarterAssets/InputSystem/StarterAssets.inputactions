@@ -63,7 +63,25 @@
                 {
                     "name": "Atacar",
                     "type": "Button",
-                    "id": "49efca71-8f0f-4dd5-a469-298097477c89",
+                    "id": "268aae3a-8081-4a36-bc16-60e44130a5be",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CambiarArma",
+                    "type": "Button",
+                    "id": "aee31028-933b-45ed-8cf8-6b57e920c503",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GuardarArma",
+                    "type": "Button",
+                    "id": "63f46934-fe62-480b-bb5b-eb6173b69725",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -271,12 +289,34 @@
                 },
                 {
                     "name": "",
-                    "id": "8022858e-089c-4c6e-97a7-d5a074ef9107",
+                    "id": "0fe5f57a-c076-4f07-9857-be8770cf296b",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";KeyboardMouse",
                     "action": "Atacar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7deda3bd-7a35-4249-a41c-46f473255569",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyboardMouse",
+                    "action": "CambiarArma",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "faec394f-e078-4a58-9e19-9d869f23968a",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GuardarArma",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
