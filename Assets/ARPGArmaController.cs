@@ -4,13 +4,17 @@ public class ARPGArmaController : MonoBehaviour
 {
     [SerializeField] private float ataque = 1f;
 
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
+        if (other.CompareTag("Golpeable"))
+        {
+            var objetivo = other.GetComponent<ControladorDummy>();
 
-    void Update()
-    {
-        
+            if (objetivo != null)
+            {
+                objetivo.RecibirGolpe(ataque);
+                Debug.Log("Le pegamos al Dummy con la llave");
+            }
+        }
     }
 }

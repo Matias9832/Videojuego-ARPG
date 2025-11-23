@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319161760842341327}
-  m_Mesh: {fileID: 4300000, guid: 8cd63dfe426baaf42937ca22a6c4dba5, type: 3}
+  m_Mesh: {fileID: 4698152120088058464, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
 --- !u!23 &4357955759559652661
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -97,10 +97,10 @@ GameObject:
   - component: {fileID: 1443881460870055171}
   - component: {fileID: 4946307691732078732}
   - component: {fileID: 1363614691717870823}
-  - component: {fileID: 811788707664151552}
   - component: {fileID: 5998748356924639178}
-  - component: {fileID: 2625769653485995484}
-  - component: {fileID: 3401371491783837346}
+  - component: {fileID: 5464712026542638166}
+  - component: {fileID: 5236251961820835705}
+  - component: {fileID: 7285066204297275996}
   m_Layer: 0
   m_Name: Dummy
   m_TagString: Golpeable
@@ -174,45 +174,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &811788707664151552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909578566676005546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 076e9eab3d22e444f8443bc25e253f2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alGolpearObjetivo:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2625769653485995484}
-        m_TargetAssemblyTypeName: RandomizeAudio, Assembly-CSharp
-        m_MethodName: PlayRandomClip
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3401371491783837346}
-        m_TargetAssemblyTypeName: ControladorDummy, Assembly-CSharp
-        m_MethodName: RecalculaSalud
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!82 &5998748356924639178
 AudioSource:
   m_ObjectHideFlags: 0
@@ -224,7 +185,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: ed31c29d44096904d8de1b10f0f395c6, type: 3}
+  m_Resource: {fileID: 8300000, guid: 57e40ae70c0ed164aa2ee063acdf8076, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -310,7 +271,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2625769653485995484
+--- !u!114 &5464712026542638166
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -319,22 +280,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 909578566676005546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d13bc00b6f3d441479b9b573ed6d3852, type: 3}
+  m_Script: {fileID: 11500000, guid: ff241b1cf6165634d94610f8151ceb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 5998748356924639178}
   audioClips:
-  - {fileID: 8300000, guid: 9a1045393846ec94a81464d14b273e32, type: 3}
-  - {fileID: 8300000, guid: 33ff30afaaa0ba84b954c78528d89fd7, type: 3}
-  - {fileID: 8300000, guid: dadd0650ba07a2b4fae3e7d34d2a9cbd, type: 3}
-  - {fileID: 8300000, guid: c3c6a9df1bc7fea439acb26c3775100c, type: 3}
-  - {fileID: 8300000, guid: ed31c29d44096904d8de1b10f0f395c6, type: 3}
-  - {fileID: 8300000, guid: c7ef0e8b28a411a45b397a1f55068ba3, type: 3}
-  - {fileID: 8300000, guid: 727b1354c432c8546af8cf5a9d709b18, type: 3}
-  - {fileID: 8300000, guid: 959b1b83e8d0d0b44a9c0974780e3ee6, type: 3}
-  - {fileID: 8300000, guid: 489edc81f1d4bbe4386e278d36b84a9e, type: 3}
-  - {fileID: 8300000, guid: f21b2f01b4248a74caf56b0a437a5df0, type: 3}
---- !u!114 &3401371491783837346
+  - {fileID: 8300000, guid: 57e40ae70c0ed164aa2ee063acdf8076, type: 3}
+  - {fileID: 8300000, guid: 35981aaad5fc42e46882585bc82de8ca, type: 3}
+  - {fileID: 8300000, guid: 4ea3c03684de9a24d8d242bcf452d164, type: 3}
+  - {fileID: 8300000, guid: ed83d0886f6cc4e4699804dc08ca53f1, type: 3}
+  - {fileID: 8300000, guid: f5498a847a756f84abde50d2d8e008ae, type: 3}
+  - {fileID: 8300000, guid: 304db65a508798941b2c7d0225df5700, type: 3}
+  - {fileID: 8300000, guid: 343eb4ecf149f7741a4309d5778596a0, type: 3}
+  - {fileID: 8300000, guid: b859e68d1ee754945a02bd904d545626, type: 3}
+  - {fileID: 8300000, guid: e03244b50ec39764dab732e92c38ce28, type: 3}
+  - {fileID: 8300000, guid: 9a78042ab4c71be42bf29f0796105225, type: 3}
+--- !u!114 &5236251961820835705
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -343,7 +304,46 @@ MonoBehaviour:
   m_GameObject: {fileID: 909578566676005546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ffac1d9ab166a2488bfca7c918504f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 5657c63b4695ec448b5ad0f437cdadb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   salud: 100
+--- !u!114 &7285066204297275996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909578566676005546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d248b1d684ae01342a1cfd63c5c3fd09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alGolpearObjetivo:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 909578566676005546}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5236251961820835705}
+        m_TargetAssemblyTypeName: ControladorDummy, Assembly-CSharp
+        m_MethodName: RecalculaSalud
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

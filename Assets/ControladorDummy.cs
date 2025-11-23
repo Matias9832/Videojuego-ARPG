@@ -3,23 +3,19 @@ using UnityEngine;
 public class ControladorDummy : MonoBehaviour
 {
     public float salud = 100f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public void RecibirGolpe(float daño)
     {
-        
+        RecalculaSalud(daño);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RecalculaSalud(float daño)
     {
+        salud -= daño;
 
-    }
-
-    public void RecalculaSalud(float danio)
-    {
-        if (salud >= 0f)
-            salud -= danio;
-        else
+        if (salud < 0f)
             salud = 0f;
+
+        Debug.Log("Dummy recibió " + daño + " de daño. Salud = " + salud);
     }
 }
