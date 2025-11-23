@@ -444,9 +444,11 @@ namespace StarterAssets
         public bool tieneArma = false;
         public int ArmaEquipada = 1;
         public GameObject arma1;
+        public ARPGArmaController arma1_controller;
         public Transform arma1PosMano;
         public Transform arma1PosEspalda;
         public GameObject arma2;
+        public ARPGArmaController arma2_controller;
         public Transform arma2PosMano;
         public Transform arma2PosEspalda;
 
@@ -460,6 +462,10 @@ namespace StarterAssets
         public Transform AnclaManoIzquierda;
         public Transform AnclaIzquierda;
         public ARPGAnclaController ArmaIzquierda;
+
+        [Space]
+        [Header("Controlador de Armas")]
+        public ARPGPersonajeAtaque armaAtaque;
 
         // FUNCIONES INPUTS DEL PERSONAJE
         void OnEnable()
@@ -592,9 +598,20 @@ namespace StarterAssets
         }
 
         public void CambiarArma(InputAction.CallbackContext context)
-        {
+        {   
+            if(tieneArma == true || estaAtacando == true)
+            {
+                Debug.Log("No puedes cambiar de arma mientras tienes un arma equipada o estás atacando");
+                return;
+            }
             ArmaEquipada = (ArmaEquipada == 1) ? 2 : 1;
             _animator.SetInteger("Arma", ArmaEquipada);
+
+            if (ArmaEquipada == 1) { armaAtaque.arma = arma1_controller; }
+            else
+            {
+                if (ArmaEquipada == 2) { armaAtaque.arma = arma2_controller; }
+            }
         }
 
     }

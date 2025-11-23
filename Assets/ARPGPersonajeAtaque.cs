@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ARPGPersonajeAtaque : MonoBehaviour
 {
-    [SerializeField] private ARPGArmaController arma;   // arrastras aquí la llave
+    [SerializeField] public ARPGArmaController arma;   // arrastras aquí la llave
 
     public void ActivarDaño()
     {

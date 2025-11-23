@@ -29,7 +29,7 @@ public class ARPGArmaController : MonoBehaviour
             if (objetivo != null)
             {
                 objetivo.RecibirGolpe(ataque);
-                Debug.Log("Le pegamos al Dummy con la llave");
+                Debug.Log("Le pegamos al Dummy con " + gameObject.name);
             }
         }
     }
