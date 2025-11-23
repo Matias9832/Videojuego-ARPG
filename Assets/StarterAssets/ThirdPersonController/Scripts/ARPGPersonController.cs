@@ -152,6 +152,7 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+            _animator.SetInteger("Arma", 1);
         }
 
         private void Update()
@@ -403,7 +404,25 @@ namespace StarterAssets
 
             LayerAtaque = Mathf.MoveTowards(LayerAtaque, target, speedLerp * Time.deltaTime);
 
-            _animator.SetLayerWeight(1, LayerAtaque);
+            int idxDer = _animator.GetLayerIndex("Ataque Derecha");
+            int idxIzq = _animator.GetLayerIndex("Ataque Izquierdo");
+
+            if (ArmaEquipada == 1)
+            {
+                _animator.SetLayerWeight(idxDer, LayerAtaque);
+                _animator.SetLayerWeight(idxIzq, 0f);
+            }
+            else if (ArmaEquipada == 2)
+            {
+                _animator.SetLayerWeight(idxDer, 0f);
+                _animator.SetLayerWeight(idxIzq, LayerAtaque);
+            }
+            else
+            {
+                _animator.SetLayerWeight(idxDer, 0f);
+                _animator.SetLayerWeight(idxIzq, 0f);
+            }
+
         }
 
         // VARIABLES EXTRAS PARA ARPG
@@ -549,7 +568,6 @@ namespace StarterAssets
 
             tieneArma = true;
             _animator.SetBool("TieneArma", tieneArma);
-            _animator.SetInteger("Arma", ArmaEquipada);
         }
         public void GuardarArma()
         {
@@ -568,7 +586,6 @@ namespace StarterAssets
 
             tieneArma = false;
             _animator.SetBool("TieneArma", tieneArma);
-            _animator.SetInteger("Arma", 0);
 
             estaGuardando = false;
             _animator.SetBool("Guardando", false);
@@ -577,6 +594,7 @@ namespace StarterAssets
         public void CambiarArma(InputAction.CallbackContext context)
         {
             ArmaEquipada = (ArmaEquipada == 1) ? 2 : 1;
+            _animator.SetInteger("Arma", ArmaEquipada);
         }
 
     }

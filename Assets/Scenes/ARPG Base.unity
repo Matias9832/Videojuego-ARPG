@@ -1511,11 +1511,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4793049970321804, guid: 385513910619c124f99edaeb65c6caad, type: 3}
   m_PrefabInstance: {fileID: 456122248}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &465386669 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3059893933524558211, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
-  m_PrefabInstance: {fileID: 5326919440953172797}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &468547248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2505,6 +2500,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4300373568175478, guid: a0a5c980877655140bfa6f7642c241e7, type: 3}
   m_PrefabInstance: {fileID: 756116787}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &768854148 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6656040939530689367, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
+  m_PrefabInstance: {fileID: 5326919440953172797}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &771360957
 PrefabInstance:
@@ -7061,6 +7061,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6656040939530689367, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.043
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656040939530689367, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656040939530689367, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.415
+      objectReference: {fileID: 0}
     - target: {fileID: 7188937380052759441, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
       propertyPath: ArmaDerecha
       value: 
@@ -7076,7 +7088,7 @@ PrefabInstance:
     - target: {fileID: 7188937380052759441, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
       propertyPath: arma2PosMano
       value: 
-      objectReference: {fileID: 465386669}
+      objectReference: {fileID: 768854148}
     - target: {fileID: 7188937380052759441, guid: 216df644f1bfcfe4ba74d78bad154f2e, type: 3}
       propertyPath: AnclaIzquierda
       value: 
