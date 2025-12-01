@@ -3,8 +3,7 @@ using UnityEngine;
 public class ARPGArmaController : MonoBehaviour
 {
     [SerializeField] private float ataque = 1f;
-
-    private bool puedeHacerDaño = false;
+    [SerializeField] private bool puedeHacerDaño = false;
 
     // Estos los llamará el personaje (con Animation Events)
     public void ActivarDaño()

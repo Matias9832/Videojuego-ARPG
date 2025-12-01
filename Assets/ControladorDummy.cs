@@ -3,6 +3,7 @@ using UnityEngine;
 public class ControladorDummy : MonoBehaviour
 {
     public float salud = 100f;
+    public Animator animator;
 
     private RandomizeAudio randomizeAudio;
 
@@ -10,11 +11,14 @@ public class ControladorDummy : MonoBehaviour
     {
         // buscamos el componente de sonido en el mismo Dummy
         randomizeAudio = GetComponent<RandomizeAudio>();
+        animator.SetFloat("Salud", salud);
     }
 
     public void RecibirGolpe(float daño)
     {
         RecalculaSalud(daño);
+        animator.SetTrigger("Golpeado");
+        animator.SetFloat("Salud", salud);
 
         // reproducir sonido al recibir golpe
         if (randomizeAudio != null)

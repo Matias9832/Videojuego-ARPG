@@ -462,11 +462,7 @@ namespace StarterAssets
         public Transform AnclaManoIzquierda;
         public Transform AnclaIzquierda;
         public ARPGAnclaController ArmaIzquierda;
-
-        [Space]
-        [Header("Controlador de Armas")]
-        public ARPGPersonajeAtaque armaAtaque;
-
+        
         // FUNCIONES INPUTS DEL PERSONAJE
         void OnEnable()
         {
@@ -540,11 +536,15 @@ namespace StarterAssets
                 {
                     estaAtacando = true;
                     _animator.SetBool("Atacando", true);
+                    arma1_controller.ActivarDaño();
+                    arma2_controller.ActivarDaño();
                 }
                 else if (context.canceled)
                 {
                     estaAtacando = false;
                     _animator.SetBool("Atacando", false);
+                    arma1_controller.DesactivarDaño();
+                    arma2_controller.DesactivarDaño();
                 }
             }
         }
@@ -606,12 +606,6 @@ namespace StarterAssets
             }
             ArmaEquipada = (ArmaEquipada == 1) ? 2 : 1;
             _animator.SetInteger("Arma", ArmaEquipada);
-
-            if (ArmaEquipada == 1) { armaAtaque.arma = arma1_controller; }
-            else
-            {
-                if (ArmaEquipada == 2) { armaAtaque.arma = arma2_controller; }
-            }
         }
 
     }
