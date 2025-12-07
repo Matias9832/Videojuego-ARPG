@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 8142028938949015387}
   - component: {fileID: 4477419640579437745}
   - component: {fileID: 7188937380052759441}
-  - component: {fileID: 6695791753648944659}
+  - component: {fileID: 2778600413117696851}
   m_Layer: 8
   m_Name: ARPG Personaje
   m_TagString: Player
@@ -369,8 +369,7 @@ MonoBehaviour:
   AnclaManoIzquierda: {fileID: 7775908083299854535}
   AnclaIzquierda: {fileID: 0}
   ArmaIzquierda: {fileID: 7671448569670931524}
-  armaAtaque: {fileID: 0}
---- !u!114 &6695791753648944659
+--- !u!114 &2778600413117696851
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -379,10 +378,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 257199535786572581}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9ac0c14ed2fb304fb8bce2cf79f4493, type: 3}
+  m_Script: {fileID: 11500000, guid: 13915915d97624e41aef4adfb493980d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arma: {fileID: 8552036255839594529}
+  contadorCollecionables: 0
+  CollectText: {fileID: 0}
+  spawnPoint: {fileID: 0}
 --- !u!1 &383573230815547780
 GameObject:
   m_ObjectHideFlags: 0
@@ -3952,14 +3953,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7722748892761471276, guid: c69e58236d6928e4a877281d1367895f, type: 3}
   m_PrefabInstance: {fileID: 55490185004814827}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8552036255839594529 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8533137869352417738, guid: c69e58236d6928e4a877281d1367895f, type: 3}
-  m_PrefabInstance: {fileID: 55490185004814827}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6115085118330515492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d59f43ff479b6d47abfb55d6cbfc72c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

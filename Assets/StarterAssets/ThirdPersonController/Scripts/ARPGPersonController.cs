@@ -218,6 +218,8 @@ namespace StarterAssets
 
         private void Move()
         {
+            if (!_controller.enabled || !isActiveAndEnabled)
+                return;
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
@@ -462,12 +464,18 @@ namespace StarterAssets
         public Transform AnclaManoIzquierda;
         public Transform AnclaIzquierda;
         public ARPGAnclaController ArmaIzquierda;
-        
+
+        [Space]
+        [Header("Controlador de Personaje")]
+        [SerializeField] private PlayerController player;
+        public InputActionReference inputRespawn;
+
         // FUNCIONES INPUTS DEL PERSONAJE
         void OnEnable()
         {
             inputAgacharse.action.started += Agachar;
             inputRodar.action.started += Rodar;
+            inputRespawn.action.started += Reaparecer;
 
             inputAtacar.action.started += Atacar;
             inputAtacar.action.canceled += Atacar;
@@ -479,12 +487,18 @@ namespace StarterAssets
         {
             inputAgacharse.action.started -= Agachar;
             inputRodar.action.started -= Rodar;
+            inputRespawn.action.started -= Reaparecer;
 
             inputAtacar.action.started -= Atacar;
             inputAtacar.action.canceled -= Atacar;
             inputGuardarArma.action.started -= Guardar;
 
             inputCambiarArma.action.started -= CambiarArma;
+        }
+
+        private void Reaparecer(InputAction.CallbackContext context)
+        {
+            player.Respawn();
         }
 
         private void Rodar(InputAction.CallbackContext context)
@@ -598,8 +612,8 @@ namespace StarterAssets
         }
 
         public void CambiarArma(InputAction.CallbackContext context)
-        {   
-            if(tieneArma == true || estaAtacando == true)
+        {
+            if (tieneArma == true || estaAtacando == true)
             {
                 Debug.Log("No puedes cambiar de arma mientras tienes un arma equipada o estás atacando");
                 return;
