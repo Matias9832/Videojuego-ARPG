@@ -1344,9 +1344,11 @@ GameObject:
   - component: {fileID: 747036334684268742}
   - component: {fileID: 3191565732608384037}
   - component: {fileID: 2454149775970250145}
+  - component: {fileID: 4503605707029693301}
+  - component: {fileID: 7796223693340863689}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Golpeable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1379,7 +1381,7 @@ Animator:
   m_GameObject: {fileID: 5889748709467036795}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 89863b65fe6ff094ea8c2bb113a17dba, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1574,8 +1576,82 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 3191565732608384037}
   audioClips:
-  - {fileID: 8300000, guid: 5d2c5bf2475e94c48ae80455c0ff3a8f, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 295889f4a094c234dbf15e516789a9ee, type: 3}
+  - {fileID: 8300000, guid: caf06f80e3e316d41827e73fd9d4f9ca, type: 3}
+  - {fileID: 8300000, guid: 29e17847783788b4496d9f5c07112f9b, type: 3}
+  - {fileID: 8300000, guid: b1f75ef7671c7c84cbd3ec307a2e1a44, type: 3}
+  - {fileID: 8300000, guid: 4087de3a208654c46b4cac64287319d0, type: 3}
+--- !u!114 &4503605707029693301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5889748709467036795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b19bee3eabc2e4f8746182489bd032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Vida: 100
+  animator: {fileID: 8335981150591875706}
+  barraVida: {fileID: 863511144340992084}
+  comportamiento: 0
+  Muerte:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4503605707029693301}
+        m_TargetAssemblyTypeName: ControladorEnemigo, Assembly-CSharp
+        m_MethodName: AnimarMuerte
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3805220550855270829}
+        m_TargetAssemblyTypeName: UnityEngine.CapsuleCollider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  RangoVision: 10
+  LayerVision:
+    serializedVersion: 2
+    m_Bits: 8
+  OrigenVision: {fileID: 8012230757718029585}
+  Player: {fileID: 0}
+  randomWalk: {fileID: 7796223693340863689}
+--- !u!114 &7796223693340863689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5889748709467036795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bffb420a5931cf44aade4f7cdea4f43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Range: 25
+  velocidad:
+    actual: 0
+    actualMax: 1
+    caminata: 1
+    corriendo: 4
+  animator: {fileID: 8335981150591875706}
+  posicionesObjetivo: []
+  randomFuncionando: 1
 --- !u!1 &6124886310118730566
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,6 +2411,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b92ee292c22949e42a9de57e10f63f26, type: 3}
+--- !u!95 &863511144340992084 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4080433176823876743, guid: b92ee292c22949e42a9de57e10f63f26, type: 3}
+  m_PrefabInstance: {fileID: 3700642320736550099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1218330800795913864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2572456977906856539, guid: b92ee292c22949e42a9de57e10f63f26, type: 3}
