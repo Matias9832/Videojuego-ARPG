@@ -1348,7 +1348,7 @@ GameObject:
   - component: {fileID: 7796223693340863689}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Golpeable
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1594,6 +1594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Vida: 100
+  estaMuerto: 0
   animator: {fileID: 8335981150591875706}
   barraVida: {fileID: 863511144340992084}
   comportamiento: 0
@@ -1630,7 +1631,12 @@ MonoBehaviour:
     m_Bits: 8
   OrigenVision: {fileID: 8012230757718029585}
   Player: {fileID: 0}
+  playerController: {fileID: 0}
   randomWalk: {fileID: 7796223693340863689}
+  DanioPorAtaque: 10
+  TiempoBloqueo: 3
+  bloqueo: 0
+  sonidoGolpe: {fileID: 8300000, guid: cd17f8ac4e713d440ba05bb3c63068e8, type: 3}
 --- !u!114 &7796223693340863689
 MonoBehaviour:
   m_ObjectHideFlags: 0

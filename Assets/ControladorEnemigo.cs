@@ -8,6 +8,8 @@ public class ControladorEnemigo : MonoBehaviour
     [Header("Parametros de Vida")]
     [Range(0f, 100f)]
     public float Vida = 100f;
+    public bool estaMuerto = false;
+    private bool estaGolpeado = false;
     public Animator animator;
     public Animator barraVida;
     public Comportamiento comportamiento;
@@ -21,61 +23,123 @@ public class ControladorEnemigo : MonoBehaviour
     public Transform Player;
     public Unity.AI.Navigation.Samples.RandomizeWalk randomWalk;
 
+    [Header("Parametros de Ataque")]
+    public float DanioPorAtaque = 10f;
+    public float TiempoBloqueo = 3f;
+    public bool bloqueo = false;
+    private int Secuencia = 1;
+
+
+    [Header("Audio")]
+    private RandomizeAudio randomizeAudio;
+    public AudioClip sonidoGolpe;
+    private AudioSource fuenteGolpe;
+
+
     void Start()
     {
         StartCoroutine(_EsperaPorMuerte());
+        randomizeAudio = GetComponent<RandomizeAudio>();
+        fuenteGolpe = GetComponent<AudioSource>();
         comportamiento = Comportamiento.agresivo;
-
     }
 
     void Update()
     {
-        barraVida.SetFloat("vida", Vida / 100);
-
-        Vector3[] direcciones = new Vector3[3];
-
-
-        direcciones[0] = transform.forward;
-        direcciones[1] = (transform.forward + transform.right).normalized;
-        direcciones[2] = (transform.forward - transform.right).normalized;
-
-        for (int i = 0; i < 3; i++)
+        if (!estaMuerto)
         {
-            Debug.DrawRay(transform.position, direcciones[i] * RangoVision, Color.green);
-
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, direcciones[i], out hit, RangoVision, LayerVision))
+            if (TiempoBloqueo > 0f && bloqueo == true)
             {
-                Debug.Log("PLAYER DETECTADO!: " + hit.collider.gameObject.name);
-                Player = hit.collider.gameObject.transform;
+                TiempoBloqueo -= Time.deltaTime;
             }
-        }
-
-        if (Player != null)
-        {
-            randomWalk.randomFuncionando = false;
-            if (Vector3.Distance(this.transform.position, Player.position) > 2f)
+            else if (TiempoBloqueo <= 0f && bloqueo == true)
             {
-                animator.SetBool("ataque", false);
-                randomWalk.velocidad.actualMax = randomWalk.velocidad.corriendo;
-                randomWalk.CambiaObjetivo(Player.position);
+                bloqueo = false;
+                animator.SetBool("Bloquea", false);
+                TiempoBloqueo = 3f;
             }
-            else
+
+            if (bloqueo)
             {
                 randomWalk.velocidad.actualMax = 0f;
-                animator.SetBool("ataque", true);
+                animator.SetBool("Ataca", false);
+                return;
             }
+
+            barraVida.SetFloat("Vida", Vida / 100);
+
+            Vector3[] direcciones = new Vector3[3];
+
+
+            direcciones[0] = OrigenVision.forward;
+            direcciones[1] = (OrigenVision.forward + OrigenVision.right).normalized;
+            direcciones[2] = (OrigenVision.forward - OrigenVision.right).normalized;
+
+            for (int i = 0; i < 3; i++)
+            {
+                Debug.DrawRay(OrigenVision.position, direcciones[i] * RangoVision, Color.green);
+
+                RaycastHit hit;
+                if (Physics.Raycast(OrigenVision.position, direcciones[i], out hit, RangoVision, LayerVision))
+                {
+                    Debug.Log("PLAYER DETECTADO!: " + hit.collider.gameObject.name);
+                    Player = hit.collider.gameObject.transform;
+                }
+            }
+
+            if (Player != null)
+            {
+
+                randomWalk.randomFuncionando = false;
+                if (Vector3.Distance(this.transform.position, Player.position) > 2f)
+                {
+                    animator.SetBool("Ataca", false);
+                    randomWalk.velocidad.actualMax = randomWalk.velocidad.corriendo;
+                    randomWalk.CambiaObjetivo(Player.position);
+                }
+                else
+                {
+                    if (!estaGolpeado) // SOLO ATACA SI NO ESTÁ GOLPEADO
+                    {
+                        randomWalk.velocidad.actualMax = 0f;
+                        animator.SetBool("Ataca", true);
+                    }
+                    else
+                    {
+                        animator.SetBool("Ataca", false);
+                    }
+                }
+            }
+        }
+        else
+        {
+            randomWalk.velocidad.actualMax = 0f;
         }
     }
 
     public void TomaDanio(float danio)
     {
+        if (bloqueo == true)
+        {
+            TiempoBloqueo = 3f;
+            SonidoGolpeBloqueo();
+            return;
+        }
+
         Vida -= danio;
+        estaGolpeado = true;
+        RandomizeIndiceGolpe();
+        if (randomizeAudio != null)
+        {
+            randomizeAudio.PlayRandomClip();
+        }
     }
 
     public void AnimarMuerte()
     {
-        animator.SetBool("muerte", true);
+        animator.SetBool("Muerto", true);
+        animator.SetTrigger("Morir");
+        estaMuerto = true;
     }
 
     public float GetDistanciaObjetivo(Vector3 objetivo)
@@ -86,8 +150,31 @@ public class ControladorEnemigo : MonoBehaviour
 
     public void RandomizeIndiceGolpe()
     {
-        animator.SetInteger("golpeIndice", Random.Range(1, 6));
-        animator.SetTrigger("golpe");
+        if (bloqueo) return;
+        animator.SetInteger("RecibeIndice", Secuencia);
+        animator.SetTrigger("RecibeAtaque");
+
+        if (Secuencia == 4)
+        {
+            MantenerBloqueo();
+            Secuencia = 1;
+        }
+        else
+        {
+            Secuencia++;
+        }
+    }
+
+    public void MantenerBloqueo()
+    {
+        bloqueo = true;
+        TiempoBloqueo = 3f;
+        animator.SetBool("Bloquea", true);
+    }
+
+    public void FinGolpe()
+    {
+        estaGolpeado = false;
     }
 
     public void PlayAudioMuerte(AudioClip clip)
@@ -96,6 +183,11 @@ public class ControladorEnemigo : MonoBehaviour
         this.GetComponent<AudioSource>().Play();
     }
 
+    public void SonidoGolpeBloqueo()
+    {
+        if (fuenteGolpe != null && sonidoGolpe != null)
+            fuenteGolpe.PlayOneShot(sonidoGolpe);
+    }
 
     IEnumerator _EsperaPorMuerte()
     {

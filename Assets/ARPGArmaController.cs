@@ -31,5 +31,16 @@ public class ARPGArmaController : MonoBehaviour
                 Debug.Log("Le pegamos al Dummy con " + gameObject.name);
             }
         }
+
+        if(other.CompareTag("Enemy"))
+        {
+            var enemigo = other.GetComponent<ControladorEnemigo>();
+
+            if (enemigo != null)
+            {
+                enemigo.TomaDanio(ataque);
+                Debug.Log("Le pegamos al Enemigo con " + gameObject.name);
+            }
+        }
     }
 }

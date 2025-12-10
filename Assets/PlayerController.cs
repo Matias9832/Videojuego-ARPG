@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Estadisticas")]
+    public float Vida = 100f;
 
     [Header("Coleccionables")]
     public int contadorCollecionables;

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Golpeable
+  - Enemy
   layers:
   - Default
   - TransparentFX
