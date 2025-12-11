@@ -1635,7 +1635,7 @@ MonoBehaviour:
   DanioPorAtaque: 10
   TiempoBloqueo: 3
   bloqueo: 0
-  armaEnemiga: {fileID: 0}
+  armaEnemiga: {fileID: 5627664176010791029}
   sonidoGolpe: {fileID: 8300000, guid: cd17f8ac4e713d440ba05bb3c63068e8, type: 3}
 --- !u!114 &7796223693340863689
 MonoBehaviour:
@@ -2437,7 +2437,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1145237178023060, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
       propertyPath: m_Name
-      value: SM_Wep_Bat_Wood_01
+      value: Arma
       objectReference: {fileID: 0}
     - target: {fileID: 4779526885788282, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2484,6 +2484,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
+--- !u!114 &5627664176010791029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1530171730094742859, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
+  m_PrefabInstance: {fileID: 6567719216700773694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21176bf4db7a11149b1769cfb0798ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6572373777144618820 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4779526885788282, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}

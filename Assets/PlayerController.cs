@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
 
     public void BajarVida(float cantidad)
     {
+        if (estaMuerto) return;
         Vida -= cantidad;
         if (randomizeAudio != null)
         {
