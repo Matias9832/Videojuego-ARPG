@@ -1631,11 +1631,11 @@ MonoBehaviour:
     m_Bits: 8
   OrigenVision: {fileID: 8012230757718029585}
   Player: {fileID: 0}
-  playerController: {fileID: 0}
   randomWalk: {fileID: 7796223693340863689}
   DanioPorAtaque: 10
   TiempoBloqueo: 3
   bloqueo: 0
+  armaEnemiga: {fileID: 0}
   sonidoGolpe: {fileID: 8300000, guid: cd17f8ac4e713d440ba05bb3c63068e8, type: 3}
 --- !u!114 &7796223693340863689
 MonoBehaviour:

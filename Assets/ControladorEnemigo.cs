@@ -101,19 +101,22 @@ public class ControladorEnemigo : MonoBehaviour
                 randomWalk.randomFuncionando = false;
                 if (Vector3.Distance(this.transform.position, Player.position) > 2f)
                 {
+                    armaEnemiga.DesactivarDaño();
                     animator.SetBool("Ataca", false);
                     randomWalk.velocidad.actualMax = randomWalk.velocidad.corriendo;
                     randomWalk.CambiaObjetivo(Player.position);
                 }
                 else
                 {
-                    if (!estaGolpeado) // SOLO ATACA SI NO ESTÁ GOLPEADO
+                    if (!estaGolpeado)
                     {
+                        armaEnemiga.ActivarDaño();
                         randomWalk.velocidad.actualMax = 0f;
                         animator.SetBool("Ataca", true);
                     }
                     else
                     {
+                        armaEnemiga.DesactivarDaño();
                         animator.SetBool("Ataca", false);
                     }
                 }

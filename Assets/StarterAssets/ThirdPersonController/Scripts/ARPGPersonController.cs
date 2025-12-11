@@ -159,11 +159,30 @@ namespace StarterAssets
         {
             _hasAnimator = TryGetComponent(out _animator);
 
-            JumpAndGravity();
-            GroundedCheck();
-            Move();
+            if (player != null)
+            {
+                if (player.estaMuerto)
+                {
+                    _animator.SetBool("GameOver", true);
+                }
+                else
+                {
+                    _animator.SetBool("GameOver", false);
+                    JumpAndGravity();
+                    GroundedCheck();
+                    Move();
 
-            CambiarLayer();
+                    CambiarLayer();
+                }
+            }
+            else
+            {
+                JumpAndGravity();
+                GroundedCheck();
+                Move();
+
+                CambiarLayer();
+            }
         }
 
         private void LateUpdate()
