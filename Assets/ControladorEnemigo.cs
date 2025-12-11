@@ -29,6 +29,9 @@ public class ControladorEnemigo : MonoBehaviour
     public bool bloqueo = false;
     private int Secuencia = 1;
 
+    [Header("Parametros de Armas")]
+    public ControladorArmaEnemiga armaEnemiga;
+
 
     [Header("Audio")]
     private RandomizeAudio randomizeAudio;
@@ -68,14 +71,19 @@ public class ControladorEnemigo : MonoBehaviour
 
             barraVida.SetFloat("Vida", Vida / 100);
 
-            Vector3[] direcciones = new Vector3[3];
+            Vector3[] direcciones = new Vector3[7];
 
 
             direcciones[0] = OrigenVision.forward;
             direcciones[1] = (OrigenVision.forward + OrigenVision.right).normalized;
             direcciones[2] = (OrigenVision.forward - OrigenVision.right).normalized;
+            direcciones[3] = (OrigenVision.forward + OrigenVision.right * 0.5f).normalized;
+            direcciones[4] = (OrigenVision.forward - OrigenVision.right * 0.5f).normalized;
+            direcciones[5] = (OrigenVision.forward * 0.5f + OrigenVision.right).normalized;
+            direcciones[6] = (OrigenVision.forward * 0.5f - OrigenVision.right).normalized;
 
-            for (int i = 0; i < 3; i++)
+
+            for (int i = 0; i < 7; i++)
             {
                 Debug.DrawRay(OrigenVision.position, direcciones[i] * RangoVision, Color.green);
 
@@ -137,6 +145,7 @@ public class ControladorEnemigo : MonoBehaviour
 
     public void AnimarMuerte()
     {
+        animator.applyRootMotion = true;
         animator.SetBool("Muerto", true);
         animator.SetTrigger("Morir");
         estaMuerto = true;
@@ -156,8 +165,8 @@ public class ControladorEnemigo : MonoBehaviour
 
         if (Secuencia == 4)
         {
-            MantenerBloqueo();
             Secuencia = 1;
+            MantenerBloqueo();
         }
         else
         {
