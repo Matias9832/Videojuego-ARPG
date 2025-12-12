@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21176bf4db7a11149b1769cfb0798ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ataque: 10
+  ataque: 50
   "puedeHacerDa\xF1o": 0
 --- !u!65 &6485340781901897400
 BoxCollider:
